@@ -48,11 +48,11 @@ def collect(org):
 
     for dom in td:
 
-        domain = re.search('([\w+\d+\-]*)\.(\w+)\.?(jp|es|ar|eu|ca|gov|is|edu|net|it|cn|eg|us|tw|au|sa|info|tr|kr)?$', dom.text.strip())
+        domain = re.search('([\w+\d+\-]*)\.(\w+)\.?(jp|es|ar|eu|ca|gov|is|edu|net|it|cn|eg|us|tw|au|sa|info|tr|kr|co.*|com.*)?$', dom.text.strip())
 
         if domain:
             domain = re.sub(r'^\.', '', domain.group(0))
-            domains.append(domain)
+            domains.append(domain.lower())
 
     x=set(domains)
 
